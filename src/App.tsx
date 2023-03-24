@@ -5,9 +5,9 @@ import { Unity, useUnityContext} from "react-unity-webgl";
 function App() {
   const { unityProvider, isLoaded, loadingProgression, sendMessage } = useUnityContext({
     loaderUrl: "/game.loader.js",
-    dataUrl: "/game.data",
-    frameworkUrl: "/game.framework.js",
-    codeUrl: "/game.wasm",
+    dataUrl: "/game.data.gz",
+    frameworkUrl: "/game.framework.js.gz",
+    codeUrl: "/game.wasm.gz",
   });
 
   const loadingPercentage = Math.round(loadingProgression * 100);
