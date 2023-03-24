@@ -4,10 +4,10 @@ import { Unity, useUnityContext} from "react-unity-webgl";
 
 function App() {
   const { unityProvider, isLoaded, loadingProgression, sendMessage } = useUnityContext({
-    loaderUrl: "../game/game.loader.js",
-    dataUrl: "../game/game.data.gz",
-    frameworkUrl: "../game/game.framework.js.gz",
-    codeUrl: "../game/game.wasm.gz",
+    loaderUrl: "/game.loader.js",
+    dataUrl: "/game.data.gz",
+    frameworkUrl: "/game.framework.js.gz",
+    codeUrl: "/game.wasm.gz",
   });
 
   const loadingPercentage = Math.round(loadingProgression * 100);
@@ -49,7 +49,7 @@ function App() {
       <button onClick={handleClickSpawnEnemies}>Spawn cube</button>
       <Unity
       unityProvider={unityProvider}
-      style={{ width: 1080, height: 800 }}
+      style={{ width: 960, height: 640 }}
       />
 
     </div>

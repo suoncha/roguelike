@@ -8,6 +8,5 @@ RUN yarn build
 FROM nginx:stable-alpine
 WORKDIR /usr/share/nginx/html
 COPY --from=builder /app/dist .
-COPY --from=builder /app/game ./game
 CMD ["nginx", "-g", "daemon off;"]
 
