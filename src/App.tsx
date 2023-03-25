@@ -33,7 +33,7 @@ function App() {
         value={num} 
         onChange={(e) => setNum(e.target.value)}
         />
-        <button type="submit">Send</button>
+        <button type="submit">Send this</button>
       </form>
       
     </div>
