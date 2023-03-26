@@ -1,7 +1,0 @@
-# Development
-1/ Build WebGL to game folder, then copy the 4 necessary files
-2/ run: yarn dev
-# Production
-1/ run: yarn build
-2/ Copy game folder to dist/game
-3/ run index.html in nginx
