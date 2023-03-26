@@ -3,7 +3,7 @@ WORKDIR /app
 RUN yarn set version berry
 COPY --chown=node:node .yarn .yarn
 COPY --chown=node:node .pnp.cjs .yarnrc.yml package.json yarn.lock ./
-RUN yarn install --immutable --immutable-cache
+RUN yarn install --immutable
 COPY --chown=node:node . .
 RUN yarn build 
 
