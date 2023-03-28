@@ -26,7 +26,7 @@ export const MobilePage = () => {
                     Please open this website on a PC
                 </Typography>
             </Box>
-            <Box paddingTop="8vh">
+            <Box paddingTop="12vh">
                 <Copyright/>
             </Box>
         </Box>
