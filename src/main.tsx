@@ -8,17 +8,15 @@ import { Provider } from 'react-redux'
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Marvel',
-    // fontSize: 30
+    fontFamily: 'Ruda',
     fontSize: 15,
   }
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
     <ThemeProvider theme={theme}>
-    <CssBaseline />
+      <CssBaseline />
       <Provider store={store}>
         <App />
       </Provider>

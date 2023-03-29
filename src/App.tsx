@@ -1,11 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
 import { Unity, useUnityContext} from "react-unity-webgl";
 import type { RootState } from "./store";
-import { useSelector, useDispatch } from 'react-redux'
-import { decrement, increment } from "./reducers/counter";
+import { useSelector } from 'react-redux'
 import { LoginPage } from "./screens/loginPage";
 import { MobilePage } from "./screens/mobilePage";
-import { AppBar, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 function App() {
@@ -17,24 +14,16 @@ function App() {
   });
 
   const loadingPercentage = Math.round(loadingProgression * 100);
-
-  const count = useSelector((state: RootState) => state.counter.value)
-  const dispatch = useDispatch()
-
-  const [num, setNum] = useState('');
-  const [isSet, setSubmit] = useState(false);
   
-  function handleSubmit() {
-    setSubmit(true)
-  }
-
   function handleClickSpawnEnemies() {
     sendMessage("Spawner", "InitNum", 10);
   }
 
+  const gameState = useSelector((state: RootState) => state.game.status)
+
   const isDesktop = useMediaQuery('(min-width: 900px)');
   
-  if (!isSet) return (
+  if (!gameState) return (
     <>
       {isDesktop ? 
       <LoginPage></LoginPage> : 
@@ -49,10 +38,10 @@ function App() {
           <p>Loading... ({loadingPercentage}%)</p>
         </div>
       )}
-      <button onClick={handleClickSpawnEnemies}>Spawn cube</button>
+      {/* <button onClick={handleClickSpawnEnemies}>Spawn cube</button> */}
       <Unity
       unityProvider={unityProvider}
-      style={{ width: 960, height: 640 }}
+      style={{ width: '100vw', height: '100vh' }}
       />
     </>
   );

@@ -12,16 +12,18 @@ export const MobilePage = () => {
         }}
         >   
             <ImageListItem sx={{
+                paddingTop: '10vh',
+                paddingBottom: '10vh',
                 width: {
                     xs: '80vw',
-                    sm: '40vw',
+                    sm: '60vw',
             }}}>
                 <img src="/images/logo.png"></img>
             </ImageListItem>
             <ImageListItem sx={{
                 width: {
                     xs: '80vw',
-                    sm: '40vw',
+                    sm: '50vw',
             }}}>
                 <img src="/images/mobile-notif.png"></img>
             </ImageListItem>         

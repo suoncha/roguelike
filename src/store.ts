@@ -1,11 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './reducers/counter'
+import gameReducer from './reducers/gameSet'
+import pageReducer from './reducers/pageSwitch'
 
 export const store = configureStore({
     reducer: {
-        counter: counterReducer,
+        page: pageReducer,
+        game: gameReducer,
     },
-
 })
 
 export type RootState = ReturnType<typeof store.getState>
