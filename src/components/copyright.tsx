@@ -2,7 +2,7 @@ import { Typography, Link, Stack } from "@mui/material";
 
 export function Copyright(props: any) {
     return (
-      <Stack spacing={0.1}>
+      <Stack spacing={-0.5}>
         <Typography variant="caption" color="white" align="center">
           {'Copyright © '}
           <Link color="#C9c6c6" href="https://www.facebook.com/ph.kayn" underline="none">Phạm Hoàng Vũ</Link>

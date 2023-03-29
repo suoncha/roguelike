@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, ImageListItem, Typography } from "@mui/material";
 import { Copyright } from "../components/copyright";
 
 export const MobilePage = () => {
@@ -9,24 +9,35 @@ export const MobilePage = () => {
         alignItems="center"
         sx={{
             backgroundColor: '#4b878b',
-            //backgroundImage: 'url(/images/splash1.jpeg)'
         }}
-        >
-            <Box paddingTop="5vh" >
-                <img width="200vw" src="/images/logo.png"></img>
-            </Box>
-            <Box>
-                <img width="250vw" src="/images/mobile-notif.png"></img>
-            </Box>
-            <Box paddingTop="2vh" >
-                <Typography color="white" align="center">
-                    This game is not available for mobile
+        >   
+            <ImageListItem sx={{
+                width: {
+                    xs: '80vw',
+                    sm: '40vw',
+            }}}>
+                <img src="/images/logo.png"></img>
+            </ImageListItem>
+            <ImageListItem sx={{
+                width: {
+                    xs: '80vw',
+                    sm: '40vw',
+            }}}>
+                <img src="/images/mobile-notif.png"></img>
+            </ImageListItem>         
+            <Box paddingTop="3vh" >
+                <Typography color="white" align="center" fontSize={{
+                    xs: '5vw',
+                }}>
+                    This game hasn't supported mobile yet
                 </Typography>
-                <Typography color="white" align="center">
-                    Please open this website on a PC
+                <Typography color="white" align="center" fontSize={{
+                    xs: '5vw',
+                }}>
+                    Please open the website on a PC
                 </Typography>
             </Box>
-            <Box paddingTop="12vh">
+            <Box paddingTop="15vh">
                 <Copyright/>
             </Box>
         </Box>
