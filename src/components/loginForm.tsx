@@ -16,10 +16,23 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useDispatch } from 'react-redux'
 import { setGame } from "../reducers/gameSet";
 import { switchPage } from "../reducers/pageSwitch";
+import axios, { AxiosError } from 'axios';
+
+async function handleLoginButton(username:String, password:String) {
+    return axios.post(import.meta.env.VITE_API + "/auth/login", {username: username, password: password})
+        .then(res => res.data)
+        .catch((res:AxiosError) => {
+            if (res.response?.status == 401) console.log('Sai pass')
+            else console.log('Ngan qua')
+        })
+}
 
 export const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');  
 
     const dispatch = useDispatch()
 
@@ -52,6 +65,7 @@ export const LoginForm = () => {
                         margin: '5px',
                         width: {md: '28vw', lg: '12vw'},
                     }}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
                 <FormControl size="small" margin="dense" error sx={{
                         backgroundColor: '#ffffff',
@@ -71,6 +85,7 @@ export const LoginForm = () => {
                             </InputAdornment>
                         }
                         label='Password'
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </FormControl>
             </Grid>
@@ -80,7 +95,7 @@ export const LoginForm = () => {
                 </Link>
             </Grid>
             <Grid item width='20vw' paddingTop='5vh'>
-                <Button fullWidth variant="contained" sx={loginButtonStyle} onClick={() => console.log('H')}> 
+                <Button fullWidth variant="contained" sx={loginButtonStyle} onClick={() => console.log(handleLoginButton(username, password))}> 
                     LOGIN 
                 </Button>
             </Grid>

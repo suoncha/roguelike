@@ -30,7 +30,7 @@ export const LoginPage = () => {
             borderRadius: '5vw'
         }}>
           <Grid container>
-            <Grid alignSelf='center' padding={2} marginTop={{md: '-6vh', lg: '0'}} item xs={8}>
+            <Grid alignSelf='center' padding={2} item xs={8}>
               <Slideshow></Slideshow>
             </Grid>
             <Grid item xs={4}>
