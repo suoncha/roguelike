@@ -1,2 +1,2 @@
 DOCKER_BUILDKIT=1 docker build -t game .
-docker-compose up -d
+docker-compose --env-file ./.env up  -d
