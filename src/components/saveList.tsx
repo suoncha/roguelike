@@ -21,24 +21,30 @@ export const SaveList = () => {
     const [saveFile2, setFile2] = useState('');
     const [saveFile3, setFile3] = useState('');
 
+    const fetchData = async (token: String) => {
+        try {
+            const res = await getGetUserInfo(token);
+            for (let i = 0; i < res.data.length; i++) {
+                if (res.data[i].saveNo == 0) setFile1(JSON.stringify(res.data[i]));
+                else if (res.data[i].saveNo == 1) setFile2(JSON.stringify(res.data[i]));
+                else setFile3(JSON.stringify(res.data[i]));
+            }
+        } catch (err) {
+            dispatch(errorNof("Your credentials are expired, please re-login your account"))
+        }
+    }
+
+    async function refreshDelete(saveNo: number) {
+        saveNo == 0 ? setFile1('') :
+        saveNo == 1 ? setFile2('') : setFile3('')
+    }
+
     async function handleLogout() {
         localStorage.removeItem("gameToken")
         dispatch(switchPage(0))
     }
 
     useEffect(() => {
-        const fetchData = async (token: String) => {
-            try {
-                const res = await getGetUserInfo(token);
-                for (let i = 0; i < res.data.length; i++) {
-                    if (res.data[i].saveNo == 0) setFile1(JSON.stringify(res.data[i]));
-                    else if (res.data[i].saveNo == 1) setFile2(JSON.stringify(res.data[i]));
-                    else setFile3(JSON.stringify(res.data[i]));
-                }
-            } catch (err) {
-                dispatch(errorNof("Your credentials are expired, please re-login your account"))
-            }
-        }
         fetchData(localStorage.gameToken)
     },);
 
@@ -51,15 +57,15 @@ export const SaveList = () => {
             </Grid>
             
             <Grid item paddingTop='3vh'>
-                <SaveCard child={saveFile1} saveNo={0}></SaveCard>
+                <SaveCard child={saveFile1} refresh={fetchData} refreshDelete={refreshDelete} saveNo={0}></SaveCard>
             </Grid>
             <Grid item paddingTop='4vh'>
-                <SaveCard child={saveFile2} saveNo={1}></SaveCard>
+                <SaveCard child={saveFile2} refresh={fetchData} refreshDelete={refreshDelete} saveNo={1}></SaveCard>
             </Grid>
             <Grid item paddingTop='4vh'>
-                <SaveCard child={saveFile3} saveNo={2}></SaveCard>
+                <SaveCard child={saveFile3} refresh={fetchData} refreshDelete={refreshDelete} saveNo={2}></SaveCard>
             </Grid>
-            
+
             <Grid item width='20vw' paddingTop='5vh'>
                 <Button fullWidth variant="contained" sx={redButtonStyle} onClick={() => handleLogout()}>
                     LOG OUT

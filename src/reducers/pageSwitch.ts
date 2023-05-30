@@ -25,4 +25,3 @@ export default pageSlice.reducer
 // 1, 2, 3 - Forgot password
 // 4, 5 - Register
 // 6 - Save Files 
-// 7 - Crypto Shop
