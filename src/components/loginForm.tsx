@@ -42,7 +42,7 @@ export const LoginForm = () => {
         } catch (err: any) {
             err.response.status == 400 ?
             dispatch(errorNof("Invalid input")) :
-            dispatch(errorNof("Your credentials are invalid")); console.log(localStorage.gameToken)
+            dispatch(errorNof("Your credentials are invalid")); 
         }
     }
 
@@ -83,7 +83,6 @@ export const LoginForm = () => {
                     }}>
                     <InputLabel>Password</InputLabel>
                     <OutlinedInput
-                        id="outlined-adornment-password"
                         type={showPassword ? 'text' : 'password'}
                         endAdornment={
                             <InputAdornment position="end">

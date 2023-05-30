@@ -14,7 +14,7 @@ import { blueButtonStyle } from '../styles/button';
 import type { RootState } from "../store";
 import { useDispatch, useSelector } from 'react-redux'
 import { closeAbout } from '../reducers/barSet';
-import { Facebook, GitHub, LinkedIn } from '@mui/icons-material';
+import { Facebook, GitHub, Google, LinkedIn } from '@mui/icons-material';
 
 export const AboutDialog = () => {
     const dispatch = useDispatch()
@@ -91,6 +91,17 @@ export const AboutDialog = () => {
                 </Grid>
                 <Grid item alignSelf='flex-start'>
                     <Typography fontSize='1vw' fontWeight='700'>
+                        My lawyer advised me not to share where do we make this, definitely not on the 
+                        potato laptop in my basement.
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <Typography fontSize='2vw' fontWeight='900'>
+                        When?
+                    </Typography>
+                </Grid>
+                <Grid item alignSelf='flex-start'>
+                    <Typography fontSize='1vw' fontWeight='700'>
                         We have started doing this since January, when we are not working our fulltime jobs and 
                         side hustle (yes we do be a part of a startup team). That messed up our 
                         sleep schedule quite a lot, sometimes I wonder why I'm still alive.
@@ -104,7 +115,7 @@ export const AboutDialog = () => {
                 <Grid item alignSelf='flex-start'>
                     <Typography fontSize='1vw' fontWeight='700'>
                         Lots of research, time and effort. This project's main techstack is Unity, 
-                        React and NestJS. I'm gonna share the whole 100 pages long essay after finish it.
+                        React and NestJS. I'm gonna share the whole 120+ pages long paper after finish it.
                     </Typography>
                 </Grid>
                 <Grid item>
@@ -116,7 +127,7 @@ export const AboutDialog = () => {
                     <Typography textAlign={'center'} fontSize='1.2vw' fontWeight='700'>
                         Thomas
                     </Typography>
-                    <Grid direction='row'>
+                    <Grid container direction='row'>
                         <IconButton href='https://github.com/jesuisjohan'>
                             <GitHub></GitHub>
                         </IconButton>
@@ -126,11 +137,14 @@ export const AboutDialog = () => {
                         <IconButton href='https://www.linkedin.com/in/mai-hoang-anh-vu/'>
                             <LinkedIn></LinkedIn>
                         </IconButton>
+                        <IconButton href='mailto:thomas.maihoanganhvu@gmail.com'>
+                            <Google></Google>
+                        </IconButton>
                     </Grid>
                     <Typography textAlign={'center'} fontSize='1.2vw' fontWeight='700'>
                         C2
                     </Typography>
-                    <Grid direction='row'>
+                    <Grid container direction='row'>
                         <IconButton href='https://github.com/suoncha'>
                             <GitHub></GitHub>
                         </IconButton>
@@ -139,6 +153,9 @@ export const AboutDialog = () => {
                         </IconButton>
                         <IconButton href='https://www.linkedin.com/in/phvu2301/'>
                             <LinkedIn></LinkedIn>
+                        </IconButton>
+                        <IconButton href='mailto:vu.pham232001@gmail.com'>
+                            <Google></Google>
                         </IconButton>
                     </Grid>
                 </Grid>      

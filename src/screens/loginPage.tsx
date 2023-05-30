@@ -16,7 +16,6 @@ import { Register1 } from "../components/register1";
 import { Register2 } from "../components/register2";
 import { InfoSnackbar } from "../components/snackBar";
 import { SaveList } from "../components/saveList";
-import { CryptoShop } from "../components/shop";
 import { FeedbackForm } from "../components/feedbackForm";
 import { Changelog } from "../components/changelog";
 import { LastVersionCard } from "../components/lastVersion";
@@ -49,8 +48,7 @@ export const LoginPage = () => {
                 pageState == 3 ? <Forgot3></Forgot3> : 
                 pageState == 4 ? <Register1></Register1> : 
                 pageState == 5 ? <Register2></Register2> :
-                pageState == 6 ? <SaveList></SaveList> :
-                <CryptoShop></CryptoShop>
+                <SaveList></SaveList>
               }
             </Grid>
           </Grid>

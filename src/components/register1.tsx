@@ -93,7 +93,6 @@ export const Register1 = () => {
                     }}>
                     <InputLabel>Password</InputLabel>
                     <OutlinedInput
-                        id="outlined-adornment-password"
                         type={showPassword1 ? 'text' : 'password'}
                         endAdornment={
                             <InputAdornment position="end">
@@ -120,7 +119,6 @@ export const Register1 = () => {
                     }}>
                     <InputLabel>Password</InputLabel>
                     <OutlinedInput
-                        id="outlined-adornment-password"
                         type={showPassword2 ? 'text' : 'password'}
                         endAdornment={
                             <InputAdornment position="end">

@@ -24,7 +24,7 @@ export const SaveCard = (props: any) => {
                 <Typography fontSize='1.5vw' fontWeight='500'>
                     {props.saveNo}
                 </Typography>
-                <Grid item direction='column' paddingLeft='3vw'>
+                <Grid item container direction='column' paddingLeft='3vw'>
                     <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
                         level: {JSON.parse(props.child).level}
                     </Typography>
@@ -32,7 +32,7 @@ export const SaveCard = (props: any) => {
                         death: {JSON.parse(props.child).death}
                     </Typography>
                 </Grid>
-                <Grid item direction='column' paddingLeft='1vw'>
+                <Grid item container direction='column' paddingLeft='1vw'>
                     <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
                         coin: {JSON.parse(props.child).coin}
                     </Typography>
@@ -40,7 +40,7 @@ export const SaveCard = (props: any) => {
                         maps: {JSON.parse(props.child).mapCleared}
                     </Typography>
                 </Grid>
-                <Grid item direction='column' paddingLeft='4vw'>
+                <Grid item container direction='column' paddingLeft='4vw'>
                     <Link color="#Aa292d" href='#' underline="none" onClick={() => console.log()}>
                         <Typography sx={{color: '#C3171d'}} fontSize='0.7vw' fontWeight='900'>
                         Play
@@ -63,7 +63,7 @@ export const SaveCard = (props: any) => {
                 <Typography fontSize='1.5vw' fontWeight='500'>
                     {props.saveNo}
                 </Typography>
-                <Grid item direction='column' paddingLeft='13vw'>
+                <Grid item container direction='column' paddingLeft='13vw'>
                     <Link color="#Aa292d" href='#' underline="none" onClick={() => handleCreate(props.saveNo)}>
                         <Typography sx={{color: '#C3171d'}} fontSize='1vw' fontWeight='900'>
                         Create

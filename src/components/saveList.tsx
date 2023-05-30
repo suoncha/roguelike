@@ -12,6 +12,8 @@ import { errorNof } from "../reducers/nofBar";
 import { useEffect } from "react";
 import { getGetUserInfo } from "../services/info";
 import { SaveCard } from "./saveCard";
+import { CryptoShop } from "./cryptoShop";
+import { openCryptoShop } from "../reducers/barSet";
 
 export const SaveList = () => {
     const dispatch = useDispatch()
@@ -50,7 +52,7 @@ export const SaveList = () => {
     return (
         <Grid container alignItems='center' direction='column'>
             <Grid item alignSelf={'flex-end'} paddingTop='3vh' paddingRight='5vw'>
-                <Button variant="contained" sx={blueButtonStyle} onClick={() => console.log()}>
+                <Button variant="contained" sx={blueButtonStyle} onClick={() => dispatch(openCryptoShop())}>
                         Crypto Shop
                 </Button>
             </Grid>
@@ -68,7 +70,8 @@ export const SaveList = () => {
                 <Button fullWidth variant="contained" sx={redButtonStyle} onClick={() => handleLogout()}>
                     LOG OUT
                 </Button>
-            </Grid>         
+            </Grid>   
+            <CryptoShop></CryptoShop>      
         </Grid>
     )
 }

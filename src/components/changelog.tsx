@@ -40,7 +40,7 @@ export const Changelog = () => {
                 </Typography>
                 {
                     Version.version.map((item, i) => (
-                        <Accordion elevation={10} key={i} expanded={i == 0 && lastVersionStatus ? true : undefined}>
+                        <Accordion elevation={10} key={i} expanded={i == 0 ? true : undefined}>
                         <AccordionSummary sx={{backgroundColor: '#d1d1d1'}} expandIcon={<ExpandMore/>}>
                             <Typography fontSize='1.2vw' fontWeight='700'>Version {item.date}</Typography>
                         </AccordionSummary>

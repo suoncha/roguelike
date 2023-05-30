@@ -5,6 +5,7 @@ interface BarState {
   about: boolean,
   changelog: boolean,
   lastVersion: boolean,
+  cryptoShop: boolean,
 }
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   about: false,
   changelog: false,
   lastVersion: false,
+  cryptoShop: false,
 } as BarState
 
 const barSlice = createSlice({
@@ -42,9 +44,16 @@ const barSlice = createSlice({
     closeLastVersion: (state) => {
       state.lastVersion = false
     },
+    openCryptoShop: (state) => {
+      state.cryptoShop = true
+    },
+    closeCryptoShop: (state) => {
+      state.cryptoShop = false
+    },
   },
 })
 
 export const { openFeedback, closeFeedback, openAbout, closeAbout, 
-  openChangelog, closeChangelog, openLastVersion, closeLastVersion } = barSlice.actions
+  openChangelog, closeChangelog, openLastVersion, closeLastVersion,
+  openCryptoShop, closeCryptoShop } = barSlice.actions
 export default barSlice.reducer
