@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react-swc", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:3.2.0"],\
             ["axios", "npm:1.3.4"],\
             ["dotenv", "npm:16.0.3"],\
+            ["jwt-decode", "npm:3.1.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:18.2.0"],\
             ["react-material-ui-carousel", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:3.4.2"],\
@@ -2020,6 +2021,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["jwt-decode", [\
+        ["npm:3.1.2", {\
+          "packageLocation": "./.yarn/cache/jwt-decode-npm-3.1.2-bf3ab26591-20a4b072d4.zip/node_modules/jwt-decode/",\
+          "packageDependencies": [\
+            ["jwt-decode", "npm:3.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["lines-and-columns", [\
         ["npm:1.2.4", {\
           "packageLocation": "./.yarn/cache/lines-and-columns-npm-1.2.4-d6c7cc5799-0c37f9f7fa.zip/node_modules/lines-and-columns/",\
@@ -3047,6 +3057,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react-swc", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:3.2.0"],\
             ["axios", "npm:1.3.4"],\
             ["dotenv", "npm:16.0.3"],\
+            ["jwt-decode", "npm:3.1.2"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:18.2.0"],\
             ["react-material-ui-carousel", "virtual:c1098334c25d631ee83bd4357854ed32248f81d7bbaf0740978699076a5b56918f7b0fe0a9107fa463755cf3812d5c830a43715021ed891ab84590b8ae745dd2#npm:3.4.2"],\

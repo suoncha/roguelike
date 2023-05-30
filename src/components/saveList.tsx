@@ -1,9 +1,8 @@
 import { 
     Button,
-    Link,
-    Grid,
-    Typography } from "@mui/material";
-import { redButtonStyle } from "../styles/button";
+    Grid
+} from "@mui/material";
+import { blueButtonStyle, redButtonStyle } from "../styles/button";
 import { useState } from "react";
 
 import type { RootState } from "../store";
@@ -50,26 +49,20 @@ export const SaveList = () => {
 
     return (
         <Grid container alignItems='center' direction='column'>
-            <Grid item alignSelf='flex-start' paddingX='1vw' paddingTop='20vh'>
-                <SaveCard></SaveCard>
-                <Link color="#Aa292d"  underline="none">
-                    <Typography fontWeight='900' fontSize='1vw'>{
-                        saveFile1 ?
-                        JSON.parse(saveFile1).level : 'null'
-                    }</Typography>
-                </Link>
-                <Link color="#Aa292d"  underline="none">
-                    <Typography fontWeight='900' fontSize='1vw'>{
-                        saveFile2 ? 
-                        JSON.parse(saveFile2).level : 'null'
-                    }</Typography>
-                </Link>
-                <Link color="#Aa292d"  underline="none">
-                    <Typography fontWeight='900' fontSize='1vw'>{
-                        saveFile3 ? 
-                        JSON.parse(saveFile3).level : 'null'
-                    }</Typography>
-                </Link>
+            <Grid item alignSelf={'flex-end'} paddingTop='3vh' paddingRight='5vw'>
+                <Button variant="contained" sx={blueButtonStyle} onClick={() => console.log()}>
+                        Crypto Shop
+                </Button>
+            </Grid>
+            
+            <Grid item paddingTop='3vh'>
+                <SaveCard child={saveFile1} saveNo={0}></SaveCard>
+            </Grid>
+            <Grid item paddingTop='4vh'>
+                <SaveCard child={saveFile2} saveNo={1}></SaveCard>
+            </Grid>
+            <Grid item paddingTop='4vh'>
+                <SaveCard child={saveFile3} saveNo={2}></SaveCard>
             </Grid>
             <Grid item width='20vw' paddingTop='5vh'>
                 <Button fullWidth variant="contained" sx={redButtonStyle} onClick={() => handleLogout()}>
