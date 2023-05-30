@@ -1,28 +1,31 @@
-import { Card, CardContent, Typography, CardActionArea, Grid, Link } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Link } from '@mui/material';
+import { useState } from "react";
 
 import { useDispatch } from 'react-redux'
-import { openChangelog, openLastVersion } from '../reducers/barSet';
-import jwt_decode from "jwt-decode";
+import { errorNof } from '../reducers/nofBar';
 import { postCreateInfo } from '../services/info';
+import jwt_decode from "jwt-decode";
 
 export const SaveCard = (props: any) => {
     const dispatch = useDispatch()
+    const [createNew, setCreateNew] = useState(false);
 
     async function handleCreate(saveNo: number) {
         try {
             const decode: any = jwt_decode(localStorage.gameToken)
-            const username = decode.username
-            await postCreateInfo(decode.username, saveNo, localStorage.gameToken);
+            await postCreateInfo(decode.username, saveNo, localStorage.gameToken)
+            setCreateNew(true)
         } catch (err: any) {
+            dispatch(errorNof("Your credentials are expired, please re-login your account"))
         }
     }
 
-    if (props.child) return (
-        <Card sx={{width: '20vw'}}>   
+    if (props.child || createNew) return (
+        <Card sx={{width: '20vw', height: '12vh'}}>   
             <CardContent>
                 <Grid container alignItems='center' direction='row'>
                 <Typography fontSize='1.5vw' fontWeight='500'>
-                    {props.saveNo}
+                    Save {props.saveNo}
                 </Typography>
                 <Grid item container direction='column' paddingLeft='3vw'>
                     <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
@@ -57,20 +60,16 @@ export const SaveCard = (props: any) => {
         </Card>
     )
     else return ( 
-        <Card sx={{width: '20vw'}}>   
+        <Card sx={{width: '20vw', height: '12vh'}}>   
             <CardContent>
-                <Grid container alignItems='center' direction='row'>
                 <Typography fontSize='1.5vw' fontWeight='500'>
-                    {props.saveNo}
-                </Typography>
-                <Grid item container direction='column' paddingLeft='13vw'>
-                    <Link color="#Aa292d" href='#' underline="none" onClick={() => handleCreate(props.saveNo)}>
-                        <Typography sx={{color: '#C3171d'}} fontSize='1vw' fontWeight='900'>
-                        Create
-                        </Typography>
-                    </Link>
-                </Grid>
-                </Grid>
+                    Save {props.saveNo}
+                </Typography>     
+                <Link color="#Aa292d" href='#' underline="none" onClick={() => handleCreate(props.saveNo)}>
+                    <Typography sx={{color: '#C3171d'}} fontSize='1vw' fontWeight='900'>
+                    Create
+                    </Typography>
+                </Link>
             </CardContent>
         </Card>
     )
