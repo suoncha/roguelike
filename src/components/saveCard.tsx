@@ -10,8 +10,8 @@ export const SaveCard = (props: any) => {
 
     async function handleCreate(saveNo: number) {
         try {
-            const decode = jwt_decode(localStorage.gameToken)
-            const usernam = decode.username
+            const decode: any = jwt_decode(localStorage.gameToken)
+            const username = decode.username
             await postCreateInfo(decode.username, saveNo, localStorage.gameToken);
         } catch (err: any) {
         }
