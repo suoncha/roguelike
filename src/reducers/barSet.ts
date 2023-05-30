@@ -4,10 +4,14 @@ interface BarState {
   feedback: boolean,
   about: boolean,
   changelog: boolean,
+  lastVersion: boolean,
 }
 
 const initialState = {
   feedback: false,
+  about: false,
+  changelog: false,
+  lastVersion: false,
 } as BarState
 
 const barSlice = createSlice({
@@ -32,8 +36,15 @@ const barSlice = createSlice({
     closeChangelog: (state) => {
       state.changelog = false
     },
+    openLastVersion: (state) => {
+      state.lastVersion = true
+    },
+    closeLastVersion: (state) => {
+      state.lastVersion = false
+    },
   },
 })
 
-export const { openFeedback, closeFeedback, openAbout, closeAbout, openChangelog, closeChangelog } = barSlice.actions
+export const { openFeedback, closeFeedback, openAbout, closeAbout, 
+  openChangelog, closeChangelog, openLastVersion, closeLastVersion } = barSlice.actions
 export default barSlice.reducer

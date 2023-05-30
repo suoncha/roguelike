@@ -1,0 +1,178 @@
+{
+    "version": [
+      {
+        "date": "05/30/2023",
+        "content": [
+            "Redesign some UI",
+            "Handle API exception",
+            "Optimize Unity's bundle size"
+        ]
+      },
+      {
+        "date": "05/28/2023",
+        "content": [
+            "Set up the infrastructure",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/25/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/21/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/18/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/15/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/10/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/07/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "05/03/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "04/28/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "04/22/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "04/15/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "04/07/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "04/02/2023",
+        "content": [
+            "TBD",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      },
+      {
+        "date": "03/26/2023",
+        "content": [
+            "Complete about function", 
+            "Implent in-game shop system"
+        ]
+      },
+      {
+        "date": "03/20/2023",
+        "content": [
+            "Complete play as guest function",
+            "Complete feedback function", 
+            "Complete changelog function"
+        ]
+      },
+      {
+        "date": "03/10/2023",
+        "content": [
+            "Complete login function",
+            "Complete forgot password function", 
+            "Implent macro mechanic (radar, option menu, ...)"
+        ]
+      },
+      {
+        "date": "03/04/2023",
+        "content": [
+            "Finish Feedback API",
+            "Complete register function", 
+            "Implent more complex combat mechanic (healthbar, reload mechanic, ...)"
+        ]
+      },
+      {
+        "date": "02/26/2023",
+        "content": [
+            "Finish Authorization API",
+            "Finish Info API", 
+            "Implent more complex combat mechanic (combat physics, bullet physics, ...)"
+        ]
+      },
+      {
+        "date": "02/12/2023",
+        "content": [
+            "Optimize Dockerfile for faster build & cleaner image",
+            "Inject Unity's WebGL build into React, using React-WebGL-Unity library",
+            "Finish basic movement & combat mechanic"
+        ]
+      },
+      {
+        "date": "02/02/2023",
+        "content": [
+            "Perform dungeon generation on Unity",
+            "Decorate the website (using mock data)"
+        ]
+      },
+      {
+        "date": "01/17/2023",
+        "content": [
+            "Set up the infrastructure",
+            "Complete CI/CD pipelines for React & Nest", 
+            "Host this website using Nginx"
+        ]
+      }
+    ]
+}

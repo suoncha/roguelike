@@ -30,7 +30,7 @@ export const FeedbackForm = () => {
         try {
             await postCreateFeedback(name, content);
             dispatch(successNof("Thanks you for your feedback!"))
-            dispatch(closeFeedback())
+            handleClose()
         } catch (err: any) {
             err.response.status == 400 ?
             dispatch(errorNof("Empty input")) :
@@ -39,7 +39,7 @@ export const FeedbackForm = () => {
     }
 
     return (
-        <Dialog open={feedbackStatus} onClose={handleClose}>
+        <Dialog open={feedbackStatus} onClose={handleClose} fullWidth>
             <DialogTitle>
                 <Typography fontSize='2vw' fontWeight='900'>
                     Feedback
@@ -61,7 +61,7 @@ export const FeedbackForm = () => {
             </DialogContent>
             <DialogActions>
                 <Button variant="contained" sx={blueButtonStyle} onClick={() => handleClose()}> 
-                    Cancel 
+                    Close
                 </Button>
                 <Button variant="contained" sx={redButtonStyle} onClick={() => handleSubmit()}> 
                     Submit

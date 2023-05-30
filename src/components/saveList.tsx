@@ -1,6 +1,5 @@
 import { 
     Button,
-    TextField,
     Link,
     Grid,
     Typography } from "@mui/material";
@@ -13,6 +12,7 @@ import { switchPage } from "../reducers/pageSwitch";
 import { errorNof } from "../reducers/nofBar";
 import { useEffect } from "react";
 import { getGetUserInfo } from "../services/info";
+import { SaveCard } from "./saveCard";
 
 export const SaveList = () => {
     const dispatch = useDispatch()
@@ -51,6 +51,7 @@ export const SaveList = () => {
     return (
         <Grid container alignItems='center' direction='column'>
             <Grid item alignSelf='flex-start' paddingX='1vw' paddingTop='20vh'>
+                <SaveCard></SaveCard>
                 <Link color="#Aa292d"  underline="none">
                     <Typography fontWeight='900' fontSize='1vw'>{
                         saveFile1 ?

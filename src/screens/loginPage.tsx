@@ -18,6 +18,9 @@ import { InfoSnackbar } from "../components/snackBar";
 import { SaveList } from "../components/saveList";
 import { CryptoShop } from "../components/shop";
 import { FeedbackForm } from "../components/feedbackForm";
+import { Changelog } from "../components/changelog";
+import { LastVersionCard } from "../components/lastVersion";
+import { AboutDialog } from "../components/about";
 
 export const LoginPage = () => {
     const pageState = useSelector((state: RootState) => state.page.page)
@@ -52,6 +55,9 @@ export const LoginPage = () => {
             </Grid>
           </Grid>
         </Paper>
+        <LastVersionCard></LastVersionCard>
+        <AboutDialog></AboutDialog>
+        <Changelog></Changelog>
         <FeedbackForm></FeedbackForm>
         <InfoSnackbar severity={nofSeverity} text={nofText}></InfoSnackbar>
       </Stack>
