@@ -12,12 +12,17 @@ import { LoginForm } from "../components/loginForm";
 import { Forgot1 } from "../components/forgot1";
 import { Forgot2 } from "../components/forgot2";
 import { Forgot3 } from "../components/forgot3";
-import { Registry1 } from "../components/registry1";
-import { Registry2 } from "../components/registry2";
+import { Register1 } from "../components/register1";
+import { Register2 } from "../components/register2";
+import { InfoSnackbar } from "../components/snackBar";
+import { SaveList } from "../components/saveList";
+import { CryptoShop } from "../components/shop";
+import { FeedbackForm } from "../components/feedbackForm";
 
 export const LoginPage = () => {
-   
     const pageState = useSelector((state: RootState) => state.page.page)
+    const nofText = useSelector((state: RootState) => state.nof.message)
+    const nofSeverity = useSelector((state: RootState) => state.nof.severity)
 
     return (
       <Stack direction='row' sx={{ height: '100vh', backgroundImage: 'url(/images/splash3.jpeg)', backgroundSize: 'cover' }}>
@@ -34,14 +39,21 @@ export const LoginPage = () => {
               <Slideshow></Slideshow>
             </Grid>
             <Grid item xs={4}>
-              {pageState == 0 ? <LoginForm></LoginForm> :
-              pageState == 1 ? <Forgot1></Forgot1> :
-              pageState == 2 ? <Forgot2></Forgot2> :
-              pageState == 3 ? <Forgot3></Forgot3> : 
-              pageState == 4 ? <Registry1></Registry1> : <Registry2></Registry2>}
+              {
+                pageState == 0 ? <LoginForm></LoginForm> :
+                pageState == 1 ? <Forgot1></Forgot1> :
+                pageState == 2 ? <Forgot2></Forgot2> :
+                pageState == 3 ? <Forgot3></Forgot3> : 
+                pageState == 4 ? <Register1></Register1> : 
+                pageState == 5 ? <Register2></Register2> :
+                pageState == 6 ? <SaveList></SaveList> :
+                <CryptoShop></CryptoShop>
+              }
             </Grid>
           </Grid>
         </Paper>
+        <FeedbackForm></FeedbackForm>
+        <InfoSnackbar severity={nofSeverity} text={nofText}></InfoSnackbar>
       </Stack>
     )
 }

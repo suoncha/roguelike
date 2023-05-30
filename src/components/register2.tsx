@@ -4,16 +4,29 @@ import {
     Link,
     Grid,
     Typography } from "@mui/material";
-import { useDispatch } from 'react-redux'
+import { redButtonStyle } from "../styles/button";
+import { useState } from "react";
+
+import type { RootState } from "../store";
+import { useDispatch, useSelector } from 'react-redux'
 import { switchPage } from "../reducers/pageSwitch";
+import { errorNof, successNof } from "../reducers/nofBar";
+import { postSendOTP, postValidateOTP } from "../services/auth";
 
-export const Registry2 = () => {
+export const Register2 = () => {
     const dispatch = useDispatch()
+    const email = useSelector((state: RootState) => state.field.email)
+    const [otp, changeOtp] = useState('')
 
-    const loginButtonStyle = {
-        backgroundColor: '#C3171d',
-        '&:hover': {
-            backgroundColor: '#Aa292d',
+    async function handleValidateOTP() {
+        try {
+            await postValidateOTP(email, otp);
+            dispatch(successNof("Account created"));
+            dispatch(switchPage(0));
+        } catch (err: any) {
+            err.response.status == 400 ?
+            dispatch(errorNof("Empty input")) :
+            dispatch(errorNof("Mismatch OTP"));
         }
     }
 
@@ -31,15 +44,16 @@ export const Registry2 = () => {
                         margin: '5px',
                         width: {md: '28vw', lg: '26vw'},
                     }}
+                    onChange={(e) => changeOtp(e.target.value)}
                 />
             </Grid>
             <Grid item alignSelf='flex-end' paddingX='2.5vw'>
-                <Link color="#Aa292d" href='#' underline="none">
+                <Link color="#Aa292d" href='#' underline="none" onClick={() => postSendOTP(email)}>
                     <Typography fontWeight='700' fontSize='1vw'>Resend</Typography>
                 </Link>
             </Grid>  
             <Grid item width='20vw' paddingTop='2vh'>
-                <Button fullWidth variant="contained" sx={loginButtonStyle} onClick={() => dispatch(switchPage(0))}>
+                <Button fullWidth variant="contained" sx={redButtonStyle} onClick={() => handleValidateOTP()}>
                     NEXT 
                 </Button>
             </Grid>  

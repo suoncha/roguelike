@@ -12,8 +12,9 @@ import { switchPage } from "../reducers/pageSwitch";
 import { errorNof } from "../reducers/nofBar";
 import { changeEmail } from "../reducers/fieldSwitch";
 import { postSendOTP } from "../services/auth";
+import { useEffect } from "react";
 
-export const Forgot1 = () => {
+export const CryptoShop = () => {
     const dispatch = useDispatch()
     const email = useSelector((state: RootState) => state.field.email)
     
@@ -28,6 +29,15 @@ export const Forgot1 = () => {
             dispatch(errorNof("Account doesn't exist"));
         }
     }
+
+    async function handleLogout() {
+        localStorage.removeItem("gameToken")
+        dispatch(switchPage(0))
+    }
+
+    // useEffect(() => {
+    //     dispatch(switchPage())
+    //  });
 
     return (
         <Grid container alignItems='center' direction='column'>
@@ -53,8 +63,8 @@ export const Forgot1 = () => {
                 </Button>
             </Grid>  
             <Grid item alignSelf='flex-end' paddingX='2.5vw' paddingTop='0.5vh'>
-                <Link color="#Aa292d" href='#' underline="none" onClick={() => dispatch(switchPage(0))}>
-                    <Typography fontWeight='700' fontSize='1vw'>Go back</Typography>
+                <Link color="#Aa292d" href='#' underline="none" onClick={() => handleLogout()}>
+                    <Typography fontWeight='700' fontSize='1vw'>Log out</Typography>
                 </Link>
             </Grid>          
         </Grid>

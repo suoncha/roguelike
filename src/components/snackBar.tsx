@@ -1,26 +1,38 @@
-import { Snackbar, Button, Alert, AlertProps } from "@mui/material";
-import { useState, forwardRef } from "react";
+import { Snackbar, Alert, AlertProps } from "@mui/material";
+import { forwardRef } from "react";
 
-const SuccessAlert = forwardRef<HTMLDivElement, AlertProps>(
+import type { RootState } from "../store";
+import { useDispatch, useSelector } from 'react-redux'
+import { closeNof } from "../reducers/nofBar";
+
+const InfoAlert = forwardRef<HTMLDivElement, AlertProps>(
     function SnackbarAlert(props, ref) {
-        return <Alert elevation={6} ref={ref} {...props}/>
+        return <Alert elevation={10} variant="filled" ref={ref} {...props}/>
     }
 )
 
-export const SnackbarSuccess = (text: String) => {
-    const [open, setOpen] = useState(true)
+export const InfoSnackbar = (props: any) => {
+    const dispatch = useDispatch()
+    const nofStatus = useSelector((state: RootState) => state.nof.status)
+
     const handleClose = (
         event? : React.SyntheticEvent | Event, 
         reason? : string
     ) => {
-        if (reason == 'clickaway') return
-        setOpen(false)
+        if (reason == "clickaway") return
+        dispatch(closeNof())
     }
+
     return (
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <SuccessAlert onClose={handleClose} severity='success'>
-                {text}
-            </SuccessAlert>
+        <Snackbar
+        anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right'
+        }} 
+        open={nofStatus} autoHideDuration={3000} onClose={handleClose}>
+            <InfoAlert onClose={handleClose} severity={props.severity}>
+                {props.text}
+            </InfoAlert>
         </Snackbar>
     )
 }

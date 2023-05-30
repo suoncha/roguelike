@@ -13,16 +13,16 @@ function App() {
     codeUrl: "/game.wasm.gz",
   });
 
-  const loadingPercentage = Math.round(loadingProgression * 100);
+  
   
   function handleClickSpawnEnemies() {
     sendMessage("Spawner", "InitNum", 10);
   }
 
   const gameState = useSelector((state: RootState) => state.game.status)
-
-  const isDesktop = useMediaQuery('(min-width: 900px)');
+  const loadingPercentage = Math.round(loadingProgression * 100);
   
+  const isDesktop = useMediaQuery('(min-width: 900px)');
   if (!gameState) return (
     <>
       {isDesktop ? 

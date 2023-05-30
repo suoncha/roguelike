@@ -1,13 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import gameReducer from './reducers/gameSet'
 import pageReducer from './reducers/pageSwitch'
-import successNof from './reducers/successNof'
+import nofReducer from './reducers/nofBar'
+import fieldReducer from './reducers/fieldSwitch'
+import barReducer from './reducers/barSet'
 
 export const store = configureStore({
     reducer: {
         page: pageReducer,
         game: gameReducer,
-        successNof: successNof,
+        nof: nofReducer,
+        field: fieldReducer,
+        bar: barReducer,
     },
 })
 

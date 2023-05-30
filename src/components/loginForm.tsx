@@ -10,38 +10,45 @@ import {
     InputAdornment,
     OutlinedInput,
     IconButton } from "@mui/material";
-import { Copyright } from "../components/copyright";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { redButtonStyle } from "../styles/button";
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { useDispatch } from 'react-redux'
+import { Copyright } from "../components/copyright";
+
+import type { RootState } from "../store";
+import { useDispatch, useSelector } from 'react-redux'
 import { setGame } from "../reducers/gameSet";
 import { switchPage } from "../reducers/pageSwitch";
-import axios, { AxiosError } from 'axios';
-
-async function handleLoginButton(username:String, password:String) {
-    return axios.post(import.meta.env.VITE_API + "/auth/login", {username: username, password: password})
-        .then(res => res.data)
-        .catch((res:AxiosError) => {
-            if (res.response?.status == 401) console.log('Sai pass')
-            else console.log('Ngan qua')
-        })
-}
+import { errorNof, successNof } from "../reducers/nofBar";
+import { changePassword, changeUsername } from "../reducers/fieldSwitch";
+import { postLogin } from "../services/auth";
 
 export const LoginForm = () => {
+    const dispatch = useDispatch()
+    const username = useSelector((state: RootState) => state.field.username)
+    const password = useSelector((state: RootState) => state.field.password)
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');  
-
-    const dispatch = useDispatch()
-
-    const loginButtonStyle = {
-        backgroundColor: '#C3171d',
-        '&:hover': {
-            backgroundColor: '#Aa292d',
+    async function handleLogin() {
+        if (username == '' || password == '') dispatch(errorNof("Empty input"));
+        else if (username.length < 6 || username.length > 12) dispatch(errorNof("Username must be between 6-12 characters"))
+        else if (password.length < 6) dispatch(errorNof("Password must be longer than 6 characters"))
+        else try {
+            const res = await postLogin(username, password);
+            localStorage.gameToken = res.data.accessToken;
+            dispatch(successNof("Logged in successfully"));
+            dispatch(switchPage(6));
+        } catch (err: any) {
+            err.response.status == 400 ?
+            dispatch(errorNof("Invalid input")) :
+            dispatch(errorNof("Your credentials are invalid")); console.log(localStorage.gameToken)
         }
     }
+
+    useEffect(() => {
+        if (localStorage.gameToken) dispatch(switchPage(6));
+    });
 
     return (
         <Grid container alignItems='center' direction='column'>
@@ -65,7 +72,8 @@ export const LoginForm = () => {
                         margin: '5px',
                         width: {md: '28vw', lg: '12vw'},
                     }}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                    onChange={(e) => dispatch(changeUsername(e.target.value))}
                 />
                 <FormControl size="small" margin="dense" error sx={{
                         backgroundColor: '#ffffff',
@@ -85,7 +93,8 @@ export const LoginForm = () => {
                             </InputAdornment>
                         }
                         label='Password'
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                        onChange={(e) => dispatch(changePassword(e.target.value))}
                     />
                 </FormControl>
             </Grid>
@@ -95,7 +104,7 @@ export const LoginForm = () => {
                 </Link>
             </Grid>
             <Grid item width='20vw' paddingTop='5vh'>
-                <Button fullWidth variant="contained" sx={loginButtonStyle} onClick={() => console.log(handleLoginButton(username, password))}> 
+                <Button fullWidth variant="contained" sx={redButtonStyle} onClick={() => handleLogin()}> 
                     LOGIN 
                 </Button>
             </Grid>
