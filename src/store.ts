@@ -4,6 +4,7 @@ import pageReducer from './reducers/pageSwitch'
 import nofReducer from './reducers/nofBar'
 import fieldReducer from './reducers/fieldSwitch'
 import barReducer from './reducers/barSet'
+import walletReducer from './reducers/walletSet'
 
 export const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
         nof: nofReducer,
         field: fieldReducer,
         bar: barReducer,
+        wallet: walletReducer,
     },
 })
 

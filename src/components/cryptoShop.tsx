@@ -15,23 +15,34 @@ import {
 } from '@mui/material'
 import { blueButtonStyle, redButtonStyle } from '../styles/button';
 import { useState } from 'react';
+import { ethers } from "ethers";
 
 import type { RootState } from "../store";
 import { useDispatch, useSelector } from 'react-redux'
-import { closeCryptoShop, connectMetamask } from '../reducers/barSet';
+import { closeCryptoShop } from '../reducers/barSet';
+import { connectMetamask } from '../reducers/walletSet';
 import { successNof, errorNof } from '../reducers/nofBar';
 
 export const CryptoShop = () => {
     const dispatch = useDispatch()
     const shopStatus = useSelector((state: RootState) => state.bar.cryptoShop)
-    const metamaskStatus = useSelector((state: RootState) => state.bar.metamask)
+    const metamaskStatus = useSelector((state: RootState) => state.wallet.metamask)
 
     function handleClose() {
         dispatch(closeCryptoShop())
     };
 
     async function handleConnect() {
-        dispatch(connectMetamask())
+        if (window.ethereum) {
+  
+            // res[0] for fetching a first wallet
+            window.ethereum
+              .request({ method: "eth_requestAccounts" })
+              .then(() => dispatch(connectMetamask()));
+          } else {
+            alert("install metamask extension!!");
+          }
+        
     }
 
     if (metamaskStatus) return (
@@ -66,8 +77,8 @@ export const CryptoShop = () => {
           Lollipop
         </Typography>
         <Grid container alignItems='center' direction='column'>
-        <Button disabled size='small' variant="contained" sx={redButtonStyle} onClick={() => handleClose()}> 
-                    Owned
+        <Button size='small' variant="contained" sx={redButtonStyle} onClick={() => handleClose()}> 
+                    Buy
                 </Button>
         </Grid>
       </CardContent>

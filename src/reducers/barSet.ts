@@ -51,14 +51,11 @@ const barSlice = createSlice({
     },
     closeCryptoShop: (state) => {
       state.cryptoShop = false
-    },
-    connectMetamask: (state) => {
-      state.metamask = true
     }
   },
 })
 
 export const { openFeedback, closeFeedback, openAbout, closeAbout, 
   openChangelog, closeChangelog, openLastVersion, closeLastVersion,
-  openCryptoShop, closeCryptoShop, connectMetamask } = barSlice.actions
+  openCryptoShop, closeCryptoShop } = barSlice.actions
 export default barSlice.reducer
