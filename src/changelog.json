@@ -1,9 +1,15 @@
 {
     "version": [
       {
+        "date": "06/08/2023",
+        "content": [
+            "Finish game contents for final presentation"
+        ]
+      },
+      {
         "date": "05/31/2023",
         "content": [
-            "Add more crypto items",
+            "Add a crypto item",
             "Redesign some UI"
         ]
       },
