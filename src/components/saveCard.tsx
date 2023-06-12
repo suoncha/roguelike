@@ -59,16 +59,16 @@ export const SaveCard = (props: any) => {
 
                     <Grid paddingLeft='3vw'>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            level: {JSON.parse(props.child).level}
+                            hpRate: {JSON.parse(props.child).level}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
                             death: {JSON.parse(props.child).death}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            coin: {JSON.parse(props.child).coin}
+                            win: {JSON.parse(props.child).coin}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            maps: {JSON.parse(props.child).mapCleared}
+                            plays: {JSON.parse(props.child).mapCleared}
                         </Typography>
                     </Grid>
                     
