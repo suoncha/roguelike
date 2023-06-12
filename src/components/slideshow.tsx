@@ -3,10 +3,10 @@ import Carousel from 'react-material-ui-carousel'
 
 export const Slideshow = () => {
     var items = [
-        {src: "/images/splash1.jpeg"},
-        {src: "/images/splash2.jpeg"},
-        {src: "/images/splash3.jpeg"},
-        {src: "/images/splash4.jpeg"},
+        {src: "/images/s1.png"},
+        {src: "/images/s2.png"},
+        {src: "/images/s3.png"},
+        {src: "/images/s4.png"},
     ]
 
     return (  
