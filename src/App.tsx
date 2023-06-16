@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 import { LoginPage } from "./screens/loginPage";
 import { MobilePage } from "./screens/mobilePage";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { LoadingScreen } from "./screens/loading";
+import { useEffect } from "react";
 
 function App() {
   const { unityProvider, isLoaded, loadingProgression, sendMessage } = useUnityContext({
@@ -11,18 +13,21 @@ function App() {
     dataUrl: "/game.data.gz",
     frameworkUrl: "/game.framework.js.gz",
     codeUrl: "/game.wasm.gz",
-  });
+  })
+  const gameState = useSelector((state: RootState) => state.game.status)
+  const saveInfo = useSelector((state: RootState) => state.game.saveInfo)
+  const saveNo = useSelector((state: RootState) => state.game.saveNo)
+  const loadingPercentage = Math.round(loadingProgression * 100)
+  const isDesktop = useMediaQuery('(min-width: 900px)')
 
-  
-  
-  function handleClickSpawnEnemies() {
-    sendMessage("Spawner", "InitNum", 10);
+  function handleInitGenerator() {
+    sendMessage("SeedGenerator", "InitStats", '0.9|10|90|100');
   }
 
-  const gameState = useSelector((state: RootState) => state.game.status)
-  const loadingPercentage = Math.round(loadingProgression * 100);
-  
-  const isDesktop = useMediaQuery('(min-width: 900px)');
+  useEffect(() => {
+    if (gameState) handleInitGenerator()
+  }, [gameState])
+
   if (!gameState) return (
     <>
       {isDesktop ? 
@@ -34,11 +39,8 @@ function App() {
   else return (
     <>
       {isLoaded === false && (
-        <div className="loading-overlay">
-          <p>Loading... ({loadingPercentage}%)</p>
-        </div>
+        LoadingScreen(loadingPercentage)
       )}
-      {/* <button onClick={handleClickSpawnEnemies}>Spawn cube</button> */}
       <Unity
       unityProvider={unityProvider}
       style={{ width: '100vw', height: '100vh' }}

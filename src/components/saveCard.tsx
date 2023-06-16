@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, Grid, Link, Button } from '@mui/material';
 
 import { useDispatch } from 'react-redux'
-import { setGame } from '../reducers/gameSet';
+import { SaveInfo, setGame, setGuest } from '../reducers/gameSet';
 import { errorNof } from '../reducers/nofBar';
 import { postCreateInfo, postDeleteInfo } from '../services/info';
 import jwt_decode from "jwt-decode";
@@ -21,7 +21,14 @@ export const SaveCard = (props: any) => {
     }
 
     async function handlePlay() {
-        dispatch(setGame())
+        const saveInfo = {
+            hpRate: 0,
+            death: 0,
+            win: 0,
+            plays: 0
+        } as SaveInfo
+        dispatch(setGuest())
+        dispatch(setGame(saveInfo))
     }
 
     async function handleDelete(saveNo: number) {
@@ -59,16 +66,16 @@ export const SaveCard = (props: any) => {
 
                     <Grid paddingLeft='3vw'>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            hpRate: {JSON.parse(props.child).level}
+                            hpRate: {JSON.parse(props.child).hpRate}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
                             death: {JSON.parse(props.child).death}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            win: {JSON.parse(props.child).coin}
+                            win: {JSON.parse(props.child).win}
                         </Typography>
                         <Typography sx={{color: '#Aa292d'}} fontSize='0.7vw' fontWeight='900'>
-                            plays: {JSON.parse(props.child).mapCleared}
+                            plays: {JSON.parse(props.child).plays}
                         </Typography>
                     </Grid>
                     

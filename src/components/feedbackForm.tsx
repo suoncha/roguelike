@@ -46,6 +46,10 @@ export const FeedbackForm = () => {
                 </Typography>
             </DialogTitle>
             <DialogContent>
+                <Typography fontSize='1vw' fontWeight='900'>
+                We have stopped supporting this game, but you can still use this form. 
+                Obviously, we won't make any more changes to the game.
+                </Typography>
                 <Typography fontSize='1vw' fontWeight='700'>
                     You can help us improving this game by submitting this form.
                     Any help would be appreciated.
@@ -55,7 +59,7 @@ export const FeedbackForm = () => {
                 </Typography>
                 <TextField margin="dense" fullWidth onChange={(e) => setName(e.target.value)}/>
                 <Typography fontSize='1.2vw' fontWeight='700'>
-                    What do you want to change or add to the game?
+                    What change do you want to make?
                 </Typography>
                 <TextField margin="dense" fullWidth multiline onChange={(e) => setContent(e.target.value)}/>
             </DialogContent>

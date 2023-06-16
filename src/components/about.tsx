@@ -8,6 +8,7 @@ import {
     Box,
     Grid,
     IconButton,
+    Link,
 } from '@mui/material'
 import { blueButtonStyle } from '../styles/button';
 
@@ -32,7 +33,22 @@ export const AboutDialog = () => {
                 </Typography>
             </DialogTitle>
             <DialogContent>
-                <Typography fontSize='1vw' fontWeight='700'>
+                <Typography fontSize='1vw' fontWeight='900' textAlign='center'>
+                    We want to announce good news and bad news.
+                </Typography>
+                <Typography fontSize='1vw' fontWeight='900' textAlign='center'>
+                    The good news is that our thesis managed to achieve a 4.0/4.0 score.
+                </Typography>
+                <Typography fontSize='1vw' fontWeight='900' textAlign='center' color="white" align="center">
+                    <Link color="#Aa292d" href="https://drive.google.com/drive/folders/1hT_8cm4hYPa7gwHsWig0zEcaRXPDbDA0?usp=sharing" underline="none">You can read it here</Link>
+                </Typography>
+                <Typography fontSize='1vw' fontWeight='900' textAlign='center'>
+                    And obviously, the bad news is:
+                </Typography>
+                <Typography fontSize='1.5vw' fontWeight='900' textAlign='center'>
+                    This game is currently out of support
+                </Typography>
+                <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                     Welcome to Virtue! This is C2 and Thomas. In order to 
                     give a brief summary of this project, we'd like to partition
                     our whole story into six sections based on the Six W's.
@@ -50,7 +66,7 @@ export const AboutDialog = () => {
                     </Typography>
                 </Grid>
                 <Grid item alignSelf='flex-start'>
-                    <Typography fontSize='1vw' fontWeight='700'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                         Our university has a mandatory subject called Graduation Project. 
                         As the name already says, it's required for us to come up with a topic, 
                         write a whole essay about it, and turn it into reality. Lucky for us, 
@@ -66,8 +82,8 @@ export const AboutDialog = () => {
                         What?
                     </Typography>
                 </Grid>
-                <Grid item alignSelf='flex-start'>
-                    <Typography fontSize='1vw' fontWeight='700'>
+                <Grid item alignSelf='center'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                     So what does Virtue mean? Since both of our real names are Vũ and there're 
                     two of us, we came up with Virtue as a wordplay of Vũ and Two. Virtue is a 
                     3D Rogue-lite game (I do mind explaining what Rogue-lite games are here; you 
@@ -77,7 +93,7 @@ export const AboutDialog = () => {
 
                     
                     </Typography>
-                    <Typography fontSize='1vw' fontWeight='700'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                     What makes this game special? Well, the majority of games out there have a 
                     constant, fixed difficulty increase, which could result in the game becoming 
                     too hard or too easy for some players. Virtue solves that problem by creating 
@@ -91,18 +107,18 @@ export const AboutDialog = () => {
                         Where?
                     </Typography>
                 </Grid>
-                <Grid item alignSelf='flex-start'>
-                    <Typography fontSize='1vw' fontWeight='700'>
-                    Definitely not on my laptop.
+                <Grid item alignSelf='center'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
+                    Definitely not on our laptop.
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Typography fontSize='2vw' fontWeight='900'>
+                    <Typography fontSize='2vw' fontWeight='900' >
                         When?
                     </Typography>
                 </Grid>
                 <Grid item alignSelf='flex-start'>
-                    <Typography fontSize='1vw' fontWeight='700'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                     We have started doing this since January, when we are not working
                     our full-time jobs and side hustles (yes, we are part of a startup team). 
                     That messed up our sleep schedule quite a bit, and sometimes I wonder why 
@@ -115,10 +131,10 @@ export const AboutDialog = () => {
                     </Typography>
                 </Grid>
                 <Grid item alignSelf='flex-start'>
-                    <Typography fontSize='1vw' fontWeight='700'>
+                    <Typography fontSize='1vw' fontWeight='700' textAlign='center'>
                     Lots of research, time, and effort. This project's main stack is Unity, 
-                    React, and NestJS. I'm going to share the whole 120-page thesis after 
-                    I finish it.
+                    React, and NestJS. We're going to share the whole 120-page thesis after 
+                    finish it.
                     </Typography>
                 </Grid>
                 <Grid item>

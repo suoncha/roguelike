@@ -1,4 +1,5 @@
-import { AppBar, Button, Stack, Toolbar, ImageListItem, Typography } from "@mui/material"
+import { GitHub } from "@mui/icons-material"
+import { AppBar, Button, Stack, Toolbar, ImageListItem, Typography, IconButton } from "@mui/material"
 import { useDispatch } from "react-redux"
 import { openAbout, openChangelog, openFeedback } from "../reducers/barSet"
 
@@ -16,6 +17,10 @@ export const InfoBar = () => {
                     <Button color='inherit' onClick={() => dispatch(openAbout())}>About</Button>
                     <Button color='inherit' onClick={() => dispatch(openChangelog())}>Changelog</Button>
                     <Button color='inherit' onClick={() => dispatch(openFeedback())}>Feedback</Button>
+                    <Button color='inherit' href="https://youtu.be/MPY7JsVZVno">Demo</Button>
+                    <IconButton color='inherit' href='https://github.com/suoncha/virtue'>
+                        <GitHub></GitHub>
+                    </IconButton>
                 </Stack>
             </Toolbar>
         </AppBar>
